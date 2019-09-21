@@ -1,0 +1,66 @@
+.container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-body {
+    border: 2px solid #aaa;
+    padding: 10px;   
+    margin: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 5px #aaa;
+}
+
+.post-body img {
+    width: 650px;
+    height: 350px;
+}
+
+.comments {
+    background-color: #eee;
+    padding: 10px;
+}
+
+
+
+.comments form {
+    margin: 10px;
+    padding: 5px;
+}
+
+.comments form textarea {
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    width: 600px;
+    max-width: 600px;
+    height: 100px;
+    margin-top: 20px;
+    resize: none;
+}
+
+.comments form input {
+    background-color: black;
+    color: white;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.comment {
+    margin: 10px;
+    padding: 10px;
+}
+
+.commentUser {
+    
+    padding: 10px;  
+    margin-bottom:100px;  
+
+}
