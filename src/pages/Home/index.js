@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import api from '../../services/api';
+import firebase from '../../services/firebase';
+
 import './styles.css';
 
 import * as UserActions from '../../store/actions/user';
@@ -45,16 +47,20 @@ const Home = ({ user, assignUser }) => {
         
     }, []);
 
-    function deletePost(postId){
-        api.delete(`/post/${postId}`, {
+    async function deletePost(post){
+        api.delete(`/post/${post._id}`, {
             headers: {
                 authorization: "Bearer " + localStorage.authToken
             }
         });
 
+        //console.log(post);
 
-        let newPosts = posts.filter(post => {
-            return post._id !== postId
+        await firebase.storage.ref('images').child(post.image_name).delete();
+
+        // pst quer dizet post
+        let newPosts = posts.filter(pst => {
+            return pst._id !== post._id
         });
 
         setPosts(newPosts);
@@ -106,7 +112,7 @@ const Home = ({ user, assignUser }) => {
                         <strong> {post.user.name} > {post.title}</strong>
                         { post.user._id === user._id ? (<a href={`/editpost/${post.title}/${encodeURIComponent(post.image)}/${post._id}`}>Editar</a>) : (<div></div>)}
                         
-                        { post.user._id === user._id ? (<button onClick={()=> deletePost(post._id)}>Excluir</button>):(<div></div>)}
+                        { post.user._id === user._id ? (<button onClick={()=> deletePost(post)}>Excluir</button>):(<div></div>)}
                         <img src={post.image} alt="Imagem do post"/>
 
                         <div className="comments">
