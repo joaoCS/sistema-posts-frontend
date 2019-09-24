@@ -22,7 +22,7 @@ const  Routes = () => {
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/logout" component={Logout}/>
                 <Route exact path="/post" component={Post}/>
-                <Route exact path="/editpost/:title/:image/:postId" component={EditPost}/>
+                <Route exact path="/editpost/:title/:image_name/:postId" component={EditPost}/>
                 <Route exact path="/register" component={Register}/>
                 <Route exact path="/forgotpassword" component={ForgotPassword}/>
                 <Route exact path="/checkemail" component={CheckEmail}/>

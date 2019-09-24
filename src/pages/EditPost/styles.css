@@ -1,0 +1,42 @@
+#edit-form-container {
+    max-width: 700px;
+    margin: 30px auto;
+    
+}
+
+#edit-form-container form {
+
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+
+#edit-form-container form textarea {
+    width: 632px;
+    resize: none;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#edit-form-container form input {
+    background-color: black;
+    border: 1px solid #000;
+    border-radius: 3px;
+    color: white;
+    height: 30px;
+    font-size: 16px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#edit-form-container form input:hover {
+    background-color: #555;
+}
+
+#edit-form-container form img { 
+    width: 637px;
+    height: 460px;
+}

@@ -43,9 +43,9 @@ import * as UserActions from '../../store/actions/user';
     }
 
     return (
-        <div>
+        <div id="register-container">
             <h2>Registrar-se</h2>
-            <form onSubmit={handleRegister} id="login-form">
+            <form onSubmit={handleRegister} id="register-form">
                 <label>Nome:</label>
                 <input type="text" value={name} onChange={(e)=> {setName(e.target.value)}} placeholder="Digite seu nome"/>
                 <label>Email:</label>

@@ -43,7 +43,7 @@ function Header ({ user, assignUser }) {
         <header className="headerContainer">
             <div className="content">
             
-            <span><a href="/">Sistema de posts</a></span>
+            <span id="app-name"><a href="/">Sistema de posts</a></span>
 
             { user.name ? (<a href="/post">Criar post</a>) : (<div></div>)}
 

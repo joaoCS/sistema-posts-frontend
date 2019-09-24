@@ -1,0 +1,47 @@
+#post-form {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#post-form textarea {
+    margin: 10px;
+    resize: none;
+    height: 50px;
+}
+
+#post-form input {
+    margin: 10px;
+}
+
+#post-form input[type=submit] {
+    background-color: black;
+    color: white;
+    font-weight: bold;  
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+#post-form input[type=submit]:hover {
+    background-color: #bbb;
+    cursor: pointer;
+}
+
+#post-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#post-form-container h2{
+    margin: 20px;
+}
+
+#login-container {
+    max-width: 700px;
+    margin: 0 auto;
+}

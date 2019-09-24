@@ -2,15 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import api from '../../services/api';
+import firebase from '../../services/firebase';
 
+import './styles.css';
 
 import * as UserActions from '../../store/actions/user';
 
 function EditPost ({ history, user, assignUser, match }) {
 
     const [postText, setPostText] = useState(match.params.title);
-    const [postImage, setPostImage] = useState(decodeURIComponent(match.params.image));
+    const [postImage, setPostImage] = useState('');
+
+
     
+    async function getImageUrl() {
+        let image_url = await firebase.storage.ref('images').child(decodeURIComponent(match.params.image_name)).getDownloadURL();
+        setPostImage(image_url);
+    }
+
+    getImageUrl();
+    
+
     if(localStorage.authToken === '' ) {
         history.replace('/');
     }
@@ -38,17 +50,18 @@ function EditPost ({ history, user, assignUser, match }) {
     }
 
     return (
-        <form onSubmit={handlePost}>
-            <textarea placeholder="Digite um texto para o post" 
-                      value={postText} onChange={(e) => setPostText(e.target.value)}
-            />
+        <div id="edit-form-container">
+            <h2>Editar Post</h2>
+            <form onSubmit={handlePost}>
+                <textarea placeholder="Digite um texto para o post" 
+                        value={postText} onChange={(e) => setPostText(e.target.value)}
+                />
 
-            <input type="text" placeholder="Entre com um endereço de uma imagem"
-                   value={postImage} onChange={(e)=>setPostImage(e.target.value)}
-            />
+                <img src={postImage} alt="Capa do post"/>
 
-            <input type="submit" value="Salvar alterações"/>
-        </form>
+                <input type="submit" value="Salvar alterações"/>
+            </form>
+        </div>
     );
 }
 

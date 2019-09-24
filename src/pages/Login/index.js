@@ -41,7 +41,7 @@ import * as UserActions from '../../store/actions/user';
     }
 
     return (
-        <div>
+        <div id="login-container">
             <h2>Login</h2>
             <form onSubmit={handleLogin} id="login-form">
                 <label>Email:</label>

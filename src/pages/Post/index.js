@@ -6,10 +6,12 @@ import firebase from '../../services/firebase';
 
 import * as UserActions from '../../store/actions/user';
 
+import './style.css';
+
 function Post ({ history, user, assignUser }) {
 
     const [postText, setPostText] = useState('');
-    const [postImage, setPostImage] = useState();
+    const [postImage, setPostImage] = useState(null);
     
     if(localStorage.authToken === '' ) {
         history.replace('/');
@@ -56,15 +58,19 @@ function Post ({ history, user, assignUser }) {
     }
 
     return (
-        <form onSubmit={handlePost}>
-            <textarea placeholder="Digite um texto para o post" 
-                      value={postText} onChange={(e) => setPostText(e.target.value)}
-            />
+        <div id="post-form-container">
+            <h2>Criar Post</h2>
+            <form id="post-form" onSubmit={handlePost}>
+            
+                <textarea placeholder="Digite um texto para o post" 
+                        value={postText} onChange={(e) => setPostText(e.target.value)}
+                />
 
-            <input type="file" onChange={handleFile}/>
+                <input type="file" onChange={handleFile}/>
 
-            <input type="submit" value="Criar post"/>
-        </form>
+                <input type="submit" value="Criar post"/>
+            </form>
+        </div>
     );
 }
 
