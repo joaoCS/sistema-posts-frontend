@@ -109,11 +109,14 @@ const Home = ({ user, assignUser }) => {
         {posts.map(post => {
             return (
                     <div className="post-body" key={post._id}>
-                        <strong> {post.user.name} > {post.title}</strong>
+                        <strong> {post.user.name} </strong>
+                        {post.title}
                         <div className="post-body-buttons-container">
-                            { post.user._id === user._id ? (<a href={`/editpost/${post.title}/${encodeURIComponent(post.image_name)}/${post._id}`}>Editar</a>) : (<div></div>)}
+                            <div>
+                                { post.user._id === user._id ? (<a href={`/editpost/${post.title}/${encodeURIComponent(post.image_name)}/${post._id}`}>Editar</a>) : (<div></div>)}
                         
-                            { post.user._id === user._id ? (<button onClick={()=> deletePost(post)}>Excluir</button>):(<div></div>)}
+                                { post.user._id === user._id ? (<button onClick={()=> deletePost(post)}>Excluir</button>):(<div></div>)}
+                            </div>
                         </div>
                         <img src={post.image} alt="Imagem do post"/>
 
