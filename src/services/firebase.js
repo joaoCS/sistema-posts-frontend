@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 let firebaseConfig = {
-    apiKey: "AIzaSyACl3io0QPzTHRmpEf9vshlzKBWeyvcTtE",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "sistemapost-82903.firebaseapp.com",
     databaseURL: "https://sistemapost-82903.firebaseio.com",
     projectId: "sistemapost-82903",
